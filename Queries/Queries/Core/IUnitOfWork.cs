@@ -7,6 +7,9 @@ namespace Queries.Core
     {
         ICourseRepository Courses { get; }
         ITeacherRepository Teachers { get; }
-        int Complete();
+        ICategoryRepository Category { get; }
+        ICoverRepository Cover { get; }
+        IStudentRepository Student { get; }
+        int Save();
     }
 }

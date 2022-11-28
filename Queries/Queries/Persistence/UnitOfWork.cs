@@ -13,12 +13,19 @@ namespace Queries.Persistence
             _context = context;
             Courses = new CourseRepository(_context);
             Teachers = new TeacherRepository(_context);
+            Category = new CategoryRepository(_context);
+            Cover = new CoverRespository(_context);
+            Student = new StudentRepository(_context);  
         }
+
 
         public ICourseRepository Courses { get; private set; }
         public ITeacherRepository Teachers { get; private set; }
+        public ICoverRepository Cover { get; private set; }
+        public ICategoryRepository Category { get; private set; }
+        public IStudentRepository Student { get; private set; }
 
-        public int Complete()
+        public int Save()
         {
             return _context.SaveChanges();
         }

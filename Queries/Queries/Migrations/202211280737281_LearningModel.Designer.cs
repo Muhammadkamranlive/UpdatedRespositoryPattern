@@ -7,13 +7,13 @@ namespace Queries.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class AddStudentTableToDbContext : IMigrationMetadata
+    public sealed partial class LearningModel : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddStudentTableToDbContext));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(LearningModel));
         
         string IMigrationMetadata.Id
         {
-            get { return "202211240938552_AddStudentTableToDbContext"; }
+            get { return "202211280737281_LearningModel"; }
         }
         
         string IMigrationMetadata.Source

@@ -43,6 +43,10 @@ namespace Queries.Persistence.Repositories
             Context.Set<TEntity>().Add(entity);
         }
 
+        public void Update(TEntity entity)
+        {
+            Context.Entry(entity).State = EntityState.Modified;
+        }
         public void AddRange(IEnumerable<TEntity> entities)
         {
             Context.Set<TEntity>().AddRange(entities);

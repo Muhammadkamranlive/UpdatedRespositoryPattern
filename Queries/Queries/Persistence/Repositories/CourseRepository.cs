@@ -16,14 +16,14 @@ namespace Queries.Persistence.Repositories
 
         public IEnumerable<Course> GetTopSellingCourses(int count)
         {
-            return PlutoContext.Courses.OrderByDescending(c => c.FullPrice).Take(count).ToList();
+            return CourseContext.Courses.OrderByDescending(c => c.FullPrice).Take(count).ToList();
         }
 
         public IEnumerable<Course> GetCoursesWithAuthors(int pageIndex, int pageSize = 10)
         {
-            return PlutoContext.Courses
-                .Include(c => c.Author)
-                .OrderBy(c => c.Name)
+            return CourseContext.Courses
+                .Include(c => c.Teacher)
+                .OrderBy(c => c.CourseTitle)
                 .Skip((pageIndex - 1) * pageSize)
                 .Take(pageSize)
                 .ToList();
@@ -31,7 +31,7 @@ namespace Queries.Persistence.Repositories
 
         
 
-        public LearningContext PlutoContext
+        public LearningContext CourseContext
         {
             get { return Context as LearningContext; }
         }

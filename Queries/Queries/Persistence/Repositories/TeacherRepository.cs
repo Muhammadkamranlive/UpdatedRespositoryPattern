@@ -13,10 +13,10 @@ namespace Queries.Persistence.Repositories
 
         public Teachers GetAuthorWithCourses(int id)
         {
-            return PlutoContext.Teachers.Include(a => a.Courses).SingleOrDefault(a => a.Id == id);
+            return TeacherContext.Teachers.Include(a => a.Courses).SingleOrDefault(a => a.Id == id);
         }
 
-        public LearningContext PlutoContext
+        public LearningContext TeacherContext
         {
             get { return Context as LearningContext; }
         }
