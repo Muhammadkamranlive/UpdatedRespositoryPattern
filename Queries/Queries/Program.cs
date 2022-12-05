@@ -18,7 +18,7 @@ namespace Queries
             var CousesByFind = unitOfWork.Courses.Find(a => a.Id == 1);
 
             // Find Single By Lambda Epression Tree 
-            //var SingleCourse = unitOfWork.Courses.SingleOrDefault(a => a.Teacher.Name == "Mosh Hamedani");
+            var SingleCourse = unitOfWork.Courses.SingleOrDefault(c=>c.CourseTitle== "Learn JavaScript Through Visual Studio 2013");
             
             // Example1
             var course = unitOfWork.Courses.Get(1);
@@ -38,26 +38,33 @@ namespace Queries
             #region Add Students
             var Students = new Dictionary<string, Student>
                 {
-                    {"Muhammad", new Student {Id = 1, Name = "Muhammad"}},
-                    {"Ali", new Student {Id = 2, Name = "Ali"}},
+                    {"Muhammad", new Student { Name = "Muhammad"}},
+                    {"Ali", new Student {Name = "Ali"}},
 
                 };
+            foreach (var item in Students.Values)
+            {
+                unitOfWork.User.Add(item);
+            }
 
             #endregion
-            //var Teacher = new Teachers()
-            //{
+            var Teacher = new Teachers()
+            {
 
 
-            //    Tag = "Muhammad Shahid",
-            //    Students = Students.Values,
+                Name= "Muhammad Shahid",
+                Students = Students.Values,
 
-            //};
-            //unitOfWork.Teachers.Add(Teacher);
+            };
+            unitOfWork.User.Add(Teacher);
 
             // Example4
-            //var teachers = unitOfWork.Teachers.GetAuthorWithCourses(1);
+            var teachers = unitOfWork.Teachers.GetAuthorWithCourses(1);
             //unitOfWork.Courses.RemoveRange(teachers.Courses);
             //unitOfWork.Teachers.Remove(teachers);
+
+
+
             unitOfWork.Save();
             Console.ReadKey();
 

@@ -10,6 +10,7 @@ namespace Queries.Core
         ICategoryRepository Category { get; }
         ICoverRepository Cover { get; }
         IStudentRepository Student { get; }
+        IUserRepository User { get; }
         int Save();
     }
 }

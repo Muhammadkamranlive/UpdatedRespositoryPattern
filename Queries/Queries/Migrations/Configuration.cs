@@ -22,7 +22,6 @@
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method
             //  to avoid creating duplicate seed data.
 
-
             #region
             var Cover = new List<Cover>()
             {
@@ -65,7 +64,7 @@
 
             foreach (var student in Students.Values)
             {
-                context.Students.AddOrUpdate(t => t.Id, student);
+                context.Users.AddOrUpdate(t => t.Id, student);
             }
 
             #endregion
@@ -149,7 +148,7 @@
             };
 
             foreach (var author in authors)
-                context.Teachers.AddOrUpdate(a => a.Id, author);
+                context.Users.AddOrUpdate(a => a.Id, author);
             #endregion
 
             #region Add Courses
@@ -368,8 +367,6 @@
             foreach (var course in courses)
                 context.Courses.AddOrUpdate(c => c.Id, course);
             #endregion
-
-
         }
     }
 }

@@ -20,6 +20,7 @@ namespace Queries.Persistence
         public virtual DbSet<Student>Students { get; set; } 
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Cover> Covers{ get; set; }
+        public virtual DbSet<User> Users { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new CourseConfiguration());

@@ -13,7 +13,7 @@ namespace Queries.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202211280737281_LearningModel"; }
+            get { return "202212050657294_LearningModel"; }
         }
         
         string IMigrationMetadata.Source
